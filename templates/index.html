@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AgentShield | Scam Investigation</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="/">🛡️ AgentShield</a>
+  <span class="tag">MULTI-AGENT SCAM INVESTIGATION</span>
+</header>
+<main class="layout">
+  <section class="hero">
+    <p class="eyebrow">AI-ASSISTED SECURITY ANALYSIS</p>
+    <h1>Pause. Investigate.<br><span>Stay protected.</span></h1>
+    <p class="intro">Inspect suspicious messages and URLs with a coordinated set of specialist agents. Results explain the signals found and the limits of the analysis.</p>
+  </section>
+  <section class="panel">
+    <div class="panel-head"><div><h2>Investigate a message</h2><p>Paste the text or URL you want to inspect.</p></div><span class="live"><i></i> LOCAL ANALYSIS</span></div>
+    <textarea id="inputText" maxlength="10000" placeholder="Example: Your account will be suspended. Verify immediately at http://example.test/login"></textarea>
+    <div class="actions"><span id="charCount">0 / 10000</span><button id="analyzeBtn">Analyze input <span>→</span></button></div>
+    <p class="privacy">Your input is analyzed by this local demo and saved in local SQLite history. Do not paste real passwords or OTPs.</p>
+    <div id="error" class="error hidden"></div>
+  </section>
+  <section id="results" class="results hidden">
+    <div class="result-head"><div><p class="eyebrow">INVESTIGATION REPORT</p><h2>Risk assessment</h2></div><span id="levelBadge" class="risk-badge">—</span></div>
+    <div class="score-row"><div class="score"><strong id="score">0</strong><span>/100 combined risk score</span></div><p id="advice"></p></div>
+    <h3>Agent findings</h3><div id="findings" class="findings"></div>
+    <h3>Coordinator trace</h3><div id="trace" class="trace"></div>
+    <p class="disclaimer">This is a demonstration tool, not a definitive scam detector. A low score does not mean a message or URL is safe.</p>
+  </section>
+  <section class="panel history-panel">
+    <div class="panel-head"><div><h2>Recent investigations</h2><p>Latest scans saved on this computer.</p></div><button id="refreshHistory" class="secondary">Refresh</button></div>
+    <div id="history" class="history"><p class="muted">Loading history…</p></div>
+  </section>
+  <footer>AgentShield · Student demonstration project · Verify suspicious requests independently.</footer>
+</main>
+<script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
